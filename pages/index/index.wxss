@@ -181,3 +181,14 @@ padding: 20rpx;
    color: #999;
   padding-right: 10rpx;
 }
+.tl-introduce{
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+.tl-synopsis{
+  padding: 20rpx;
+}
+
+.tl-intro image{
+  width: 100%;
+}

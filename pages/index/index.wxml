@@ -2,7 +2,7 @@
 <view class="tl-container">
   <view class="tl-swiper">
     <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" easing-function='linear'>
-      <block wx:for="{{imgUrls}}">
+      <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
         <swiper-item bindtap="bannerLink">
           <image src="{{item.src}}" data-id="{{item.id}}" class="slide-image" mode="scaleToFill" />
         </swiper-item>
@@ -10,7 +10,7 @@
     </swiper>
   </view>
   <view class="tl-menu-bar">
-    <block wx:for="{{menuBar}}">
+    <block wx:for="{{menuBar}}" wx:key="{{item.id}}">
       <view class="tl-bar-item">
         <view class="tl-bar-box" bindtap="tlMenuBar" data-id="{{item.id}}">
           <icon class="tl-bar-icon iconfont {{item.icon}}"></icon>
@@ -54,31 +54,49 @@
       </view>
     </view>
     <view class="tl-product-list">
-<block wx:for='{{recommendGreens}}'>
-      <view class="tl-product-time" bindtap="productShopNow" data-id="{{item.id}}" >
-        <view class="product-time-img">
-          <image src="{{item.productUrl}}" mode="widthFix"></image>
-        </view>
-        <view class="product-time-introduce">
-          <view class="product-time-name">
-            <text>{{item.productName}}</text>
+      <block wx:for='{{recommendGreens}}' wx:key="{{item.id}}">
+        <view class="tl-product-time" bindtap="productShopNow" data-id="{{item.id}}">
+          <view class="product-time-img">
+            <image src="{{item.productUrl}}" mode="widthFix"></image>
           </view>
-          <view class="product-time-discount">
-            <text class="product-time-current">￥{{item.productCurrent}}</text>
-            <text class="product-time-original">￥{{item.productOriginal}}</text>
+          <view class="product-time-introduce">
+            <view class="product-time-name">
+              <text>{{item.productName}}</text>
+            </view>
+            <view class="product-time-discount">
+              <text class="product-time-current">￥{{item.productCurrent}}</text>
+              <text class="product-time-original">￥{{item.productOriginal}}</text>
+            </view>
+            <view class="product-time-statistics">
+              <text>{{item.productPreview}}浏览</text>
+              <text>{{item.productPraise}}赞</text>
+              <text>{{item.productComment}}评论</text>
+            </view>
           </view>
-          <view class="product-time-statistics">
-            <text>{{item.productPreview}}浏览</text>
-            <text>{{item.productPraise}}赞</text>
-            <text>{{item.productComment}}评论</text>
+          <view class="product-time-purchase">
+            <button>立即购买</button>
           </view>
         </view>
-        <view class="product-time-purchase">
-          <button>立即购买</button>
-        </view>
-      </view>
       </block>
     </view>
   </view>
+  <view class="tl-introduce">
+    <view class="tl-titlebar">
+      <view class="tl-titlebar-title">
+        <icon class="iconfont icon-youshang"></icon>
+        <text>商户介绍</text>
+        <icon class="iconfont icon-youshang"></icon>
+      </view>
+    </view>
+    <view class="tl-synopsis">
+    <view>
+     <view> 06:50——21:30</view>
+     <view> 06:50——21:30</view>
+     <view> <text>商户介绍</text></view>
+   </view>
+    <view class="tl-intro">
+    <image src="/static/img/500616301_wx.jpg"  mode="widthFix"></image></view>
 
+    </view>
+  </view>
 </view>
