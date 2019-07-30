@@ -15,6 +15,14 @@ Page({
       {
         src: '../../static/img/500616301_wx.jpg',
         id: "2"
+      },
+      {
+        src: '../../static/img/500826444_wx.jpg',
+         id: "3"
+      },
+      {
+        src: '../../static/img/500997157_wx.jpg',
+        id: "4"
       }
     ],
     menuBar:[
@@ -22,7 +30,8 @@ Page({
       { text: "动态", id: "w1", icon: "icon-yingyuanxinxicanyin" },
       { text: "预约", id: "w2", icon: "icon-gouwuche-xianxing" },
       { text: "优惠券", id: "w3", icon: "icon-icon_canyin" },
-      { text: "联系我们", id:"w4", icon: "icon-dkw_wode" }
+      { text: "联系我们", id:"w4", icon: "icon-dkw_wode" },
+      { text: "分类主页", id:"w5", icon: "icon-dkw_wode" }
     ],
     recommendGreens:[{
      id:'w1',
