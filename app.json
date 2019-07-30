@@ -1,0 +1,50 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/order/order",
+    "pages/theOrder/theOrder",
+    "pages/my/my",
+    "pages/bannerActivity/bannerActivity",
+    "pages/detailPage/detailPage",
+    "pages/specialSale/specialSale",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "enablePullDownRefresh": true,
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#e0620d",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/icon/icon-sy-a.png",
+        "selectedIconPath": "static/icon/icon-sy-b.png"
+      },
+      {
+        "pagePath": "pages/order/order",
+        "text": "点餐",
+        "iconPath": "static/icon/icon-dc-a.png",
+        "selectedIconPath": "static/icon/icon-dc-b.png"
+      },
+      {
+        "pagePath": "pages/theOrder/theOrder",
+        "text": "订单",
+        "iconPath": "static/icon/icon-dd-a.png",
+        "selectedIconPath": "static/icon/icon-dd-b.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "static/icon/icon-wd-a.png",
+        "selectedIconPath": "static/icon/icon-wd-b.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap39.json"
+}

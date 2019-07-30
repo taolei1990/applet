@@ -1,0 +1,84 @@
+<!--index.wxml-->
+<view class="tl-container">
+  <view class="tl-swiper">
+    <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" easing-function='linear'>
+      <block wx:for="{{imgUrls}}">
+        <swiper-item bindtap="bannerLink">
+          <image src="{{item.src}}" data-id="{{item.id}}" class="slide-image" mode="scaleToFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="tl-menu-bar">
+    <block wx:for="{{menuBar}}">
+      <view class="tl-bar-item">
+        <view class="tl-bar-box" bindtap="tlMenuBar" data-id="{{item.id}}">
+          <icon class="tl-bar-icon iconfont {{item.icon}}"></icon>
+          <text class="tl-bar-name">{{item.text}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="tl-shop-for">
+    <view class="tl-shop-manager">
+      <view class="tl-manager-img">
+        <image src="/static/img/20160801192552_rYQdJ.thumb.700_0.jpeg" mode="widthFix"></image>
+      </view>
+      <view bindtap="getText">
+        <text class="tl-manager-title">欢迎光临，我是店主</text>
+        <text class="tl-manager-subhead">营业时间06：50-21：30</text>
+      </view>
+    </view>
+    <view class="tl-contact">
+      <view class="tl-lxfstb" bindtap="ringUp">
+        <icon class="iconfont icon-dianhuahover"></icon>
+      </view>
+      <view class="tl-lxfstb">
+        <button open-type="contact" bindcontact="handleContact">
+          <icon class="iconfont icon-weixin-copy"></icon>
+        </button>
+      </view>
+    </view>
+  </view>
+
+  <view class="tl-recommended">
+    <view class="tl-titlebar">
+      <view class="tl-titlebar-title">
+        <icon class="iconfont icon-youshang"></icon>
+        <text>店长推荐</text>
+        <icon class="iconfont icon-youshang"></icon>
+      </view>
+      <view class="tl-titlebar-more">
+        <text>全部</text>
+        <icon class="iconfont icon-left-alignment"></icon>
+      </view>
+    </view>
+    <view class="tl-product-list">
+<block wx:for='{{recommendGreens}}'>
+      <view class="tl-product-time" bindtap="productShopNow" data-id="{{item.id}}" >
+        <view class="product-time-img">
+          <image src="{{item.productUrl}}" mode="widthFix"></image>
+        </view>
+        <view class="product-time-introduce">
+          <view class="product-time-name">
+            <text>{{item.productName}}</text>
+          </view>
+          <view class="product-time-discount">
+            <text class="product-time-current">￥{{item.productCurrent}}</text>
+            <text class="product-time-original">￥{{item.productOriginal}}</text>
+          </view>
+          <view class="product-time-statistics">
+            <text>{{item.productPreview}}浏览</text>
+            <text>{{item.productPraise}}赞</text>
+            <text>{{item.productComment}}评论</text>
+          </view>
+        </view>
+        <view class="product-time-purchase">
+          <button>立即购买</button>
+        </view>
+      </view>
+      </block>
+    </view>
+  </view>
+
+</view>
