@@ -1,1 +1,118 @@
 /* pages/detailPage/detailPage.wxss */
+.tl-largermap{
+  position: relative;
+  background-color: #fff
+}
+.tl-largerfigure{
+position: absolute;
+right: 20rpx;
+bottom: 20rpx;
+padding: 5rpx 20rpx;
+background-color: rgba(0, 0, 0, 0.3);
+border-radius: 50rpx;
+color: #fff;
+font-size: 22rpx;
+}
+.tl-largermap swiper{
+height: 600rpx;
+}
+.tl-largermap image{
+  height: 600rpx;
+}
+.tl-dishname{
+  background-color: #fff;
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx;
+  align-items: center
+}
+.tl-dishname text{
+  font-size: 32rpx;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin-right: 20rpx;
+}
+.tl-dishname .iconfont{
+  color: rgb(241, 85, 12)
+}
+.tl-Price-details{
+  padding: 0 20rpx;
+  background-color: #fff;
+  font-size: 24rpx;
+  color: #999
+}
+.tl-Price-li{
+  padding: 10rpx 0;
+}
+.tl-Price-details .tl-Price-li{
+  display: flex;
+  justify-content:  space-between;
+
+}
+.tl-vipcard{
+  display: block;
+  width: 100rpx;
+}
+.tl-recommend{
+
+  flex-grow: 1;
+    word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+   color: #333
+}
+.tl-present{
+  font-size: 32rpx;
+  color: rgb(245, 66, 66)
+}
+.tl-ruling{
+  text-decoration:  line-through;
+  margin-left: 10rpx;
+}
+.tl-dynamic{
+  margin-top: 20rpx;
+  background-color: #fff;
+  text-align: center;
+  padding: 20rpx;
+}
+.tl-pltx{
+  display: flex;
+  flex-wrap:  wrap;
+  justify-content: center;
+  
+}
+.tl-pltx image{
+  width: 60rpx;
+  border-radius: 60rpx;
+  margin: 10rpx;
+}
+.tl-wxtx{
+   width: 60rpx;
+   height: 60rpx;
+   border-radius: 60rpx;
+   margin: 10rpx;
+   overflow: hidden;
+}
+.tl-dianzan .iconfont{
+  font-size: 40rpx;
+}
+.tl-dianzan{
+  color: #999;
+  position: relative;
+  height: 80rpx;
+}
+.tl-dianzan-active{
+  color: rgb(230, 101, 26)
+}
+.tl-people-counting{
+  margin: 10rpx 0;
+  font-size: 26rpx;
+  color: #999
+}

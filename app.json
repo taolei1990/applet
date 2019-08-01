@@ -7,14 +7,22 @@
     "pages/bannerActivity/bannerActivity",
     "pages/detailPage/detailPage",
     "pages/specialSale/specialSale",
+    "pages/specialSale/Promotion/Promotion",
+    "pages/specialSale/dynamic/dynamic",
+    "pages/specialSale/subscribe/subscribe",
+    "pages/specialSale/discount/discount",
+    "pages/specialSale/connectus/connectus",
+    "pages/specialSale/classification/classification",
+    "pages/loadingHidden/loadingHidden",
     "pages/logs/logs"
   ],
   "window": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "首页",
+    "navigationBarTitleText": " ",
     "enablePullDownRefresh": true,
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#8a8a8a",

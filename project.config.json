@@ -39,13 +39,46 @@
 			"current": -1,
 			"list": []
 		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
 		"game": {
 			"currentL": -1,
 			"list": []
 		},
 		"miniprogram": {
-			"current": -1,
-			"list": []
+			"current": 3,
+			"list": [
+				{
+					"id": 0,
+					"name": "pages/specialSale/Promotion/Promotion",
+					"pathName": "pages/specialSale/Promotion/Promotion",
+					"query": "id=01&title=特卖",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/loadingHidden/loadingHidden",
+					"pathName": "pages/loadingHidden/loadingHidden",
+					"query": "id=01&title=特卖",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/specialSale/classification/classification",
+					"pathName": "pages/specialSale/classification/classification",
+					"query": "id=01&title=特卖",
+					"scene": null
+				},
+				{
+					"id": 3,
+					"name": "pages/detailPage/detailPage",
+					"pathName": "pages/detailPage/detailPage",
+					"query": "id=01&title=特卖",
+					"scene": null
+				}
+			]
 		}
 	}
 }

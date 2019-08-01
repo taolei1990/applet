@@ -1,9 +1,9 @@
 {
   "usingComponents": {},
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "点餐",
-    "navigationBarTextStyle": "black"
-
+    "navigationBarTextStyle": "black",
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "dark"
 
 }

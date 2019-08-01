@@ -3,8 +3,8 @@
   <view class="tl-swiper">
     <swiper indicator-dots="true" indicator-active-color="#fff" autoplay="true" easing-function='linear'>
       <block wx:for="{{imgUrls}}" wx:key="{{item.id}}">
-        <swiper-item bindtap="bannerLink">
-          <image src="{{item.src}}" data-id="{{item.id}}" class="slide-image" mode="scaleToFill" />
+        <swiper-item bindtap="bannerLink" data-id="{{item.id}}">
+          <image src="{{item.src}}" class="slide-image" mode="scaleToFill" />
         </swiper-item>
       </block>
     </swiper>
@@ -12,7 +12,7 @@
   <view class="tl-menu-bar">
     <block wx:for="{{menuBar}}" wx:key="{{item.id}}">
       <view class="tl-bar-item">
-        <view class="tl-bar-box" bindtap="tlMenuBar" data-id="{{item.id}}">
+        <view class="tl-bar-box" bindtap="tlMenuBar" data-name='{{item.name}}' data-id="{{item.id}}" data-text="{{item.text}}">
           <icon class="tl-bar-icon iconfont {{item.icon}}"></icon>
           <text class="tl-bar-name">{{item.text}}</text>
         </view>
@@ -22,7 +22,12 @@
   <view class="tl-shop-for">
     <view class="tl-shop-manager">
       <view class="tl-manager-img">
-        <image src="/static/img/20160801192552_rYQdJ.thumb.700_0.jpeg" mode="widthFix"></image>
+        <block wx:if="{{thumb}}">
+          <image src="{{thumb}}" mode="widthFix"></image>
+        </block>
+        <block wx:else>
+          <open-data type="userAvatarUrl"></open-data>
+        </block>
       </view>
       <view bindtap="getText">
         <text class="tl-manager-title">欢迎光临，我是店主</text>
@@ -89,13 +94,30 @@
       </view>
     </view>
     <view class="tl-synopsis">
-    <view>
-     <view> 06:50——21:30</view>
-     <view> 06:50——21:30</view>
-     <view> <text>商户介绍</text></view>
-   </view>
-    <view class="tl-intro">
-    <image src="/static/img/500616301_wx.jpg"  mode="widthFix"></image></view>
+      <view>
+        <view class="tl-businesshours">
+          <icon class="iconfont icon-time"></icon>
+          <text>{{businessHours}}</text>
+        </view>
+        <view class="tl-servicedelivery">
+          <icon class="iconfont icon-fenlei"></icon>
+          <block wx:for='{{servicedelivery}}' wx:key="*this">
+            <text>{{item}}</text>
+          </block>
+        </view>
+        <view class="tl-jieshao">
+          <icon class="iconfont icon-jieshao"></icon>
+          <text>商户介绍</text>
+        </view>
+      </view>
+      <view class="tl-intro">
+        <view class="tl-intro-img">
+          <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+          <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+        </view>
+        <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+        <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+      </view>
 
     </view>
   </view>

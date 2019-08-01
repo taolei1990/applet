@@ -1,0 +1,6 @@
+<!--pages/specialSale/classification/classification.wxml-->
+
+<view>
+<my-component  bindcustomevent="pageEventListener1" loading-hidden="{{loadingHidden}}"></my-component>
+<view>金卡沙发就ask犯得上看见 </view>
+</view>

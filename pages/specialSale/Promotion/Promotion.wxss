@@ -1,0 +1,25 @@
+/* pages/specialSale/Promotion/Promotion.wxss */
+.tl-sorting-tab{
+  padding: 20rpx;
+  display: flex;
+ font-size: 30rpx;
+  align-items:center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+.tl-sorting-tab .active{
+  color: rgb(238, 105, 43)
+}
+.tl-Product-list{
+  
+}
+.tl-sorting-tab .tl-sortingsa{
+  position: relative;
+  padding-right: 24rpx;
+}
+.tl-sortingsa .iconfont{
+  font-size: 24rpx;
+  position: absolute;
+  right: 0;
+  top: -16rpx;
+}

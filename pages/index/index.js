@@ -1,10 +1,12 @@
 //index.js
+var common = require('../../common/common.js')
 //获取应用实例
 Page({
   /**
    * 页面的初始数据
    */
   data: {
+    // thumb:"../../static/img/20160801192552_rYQdJ.thumb.700_0.jpeg",//店长头像
     imgUrls: [{
         src: '../../static/img/500465289_wx.jpg',
         id:"0"
@@ -18,12 +20,12 @@ Page({
       },
     ],
     menuBar:[
-      { text: "特卖", id:"w0", icon:"icon-dkw_wode"},
-      { text: "动态", id: "w1", icon: "icon-yingyuanxinxicanyin" },
-      { text: "预约", id: "w2", icon: "icon-gouwuche-xianxing" },
-      { text: "优惠券", id: "w3", icon: "icon-icon_canyin" },
-      { text: "联系我们", id:"w4", icon: "icon-dkw_wode" },
-      { text: "分类主页", id:"w5", icon: "icon-dkw_wode" }
+      { text: "特卖", id: "w0", name:'Promotion', icon:"icon-dkw_wode"},
+      { text: "动态", id: "w1", name: 'dynamic', icon: "icon-yingyuanxinxicanyin" },
+      { text: "预约", id: "w2", name: 'subscribe', icon: "icon-gouwuche-xianxing" },
+      { text: "优惠券", id: "w3", name: 'discount', icon: "icon-icon_canyin" },
+      { text: "联系我们", id: "w4", name: 'connectus', icon: "icon-dkw_wode" },
+      { text: "分类主页", id: "w5", name: 'classification', icon: "icon-dkw_wode" }
     ],
     recommendGreens:[{
      id:'w1',
@@ -43,7 +45,13 @@ Page({
         productPreview: '999',
         productPraise: '998',
         productComment: '99+',
-      }]
+      }],
+    businessHours:'06:50-21:30',
+    servicedelivery: [
+      "Wi-Fi",
+      "免费停车",
+      "微信支付"],
+    jieshao:"商户介绍"
   },
 
   /**
@@ -57,7 +65,13 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function() {
-
+   this.setData({
+     businessHours:"07:00-21:30",
+     servicedelivery: [
+       "Wi-Fi",
+       "免费停车",
+       "微信支付"]
+   })
   },
 
   /**
@@ -85,6 +99,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+  
     // wx.startPullDownRefresh({
     //   success:function(){
     //     console.log('成功')
@@ -98,7 +113,8 @@ Page({
        
     //   }
     // }),
-    //  wx.stopPullDownRefresh()
+ //处理数据后关闭刷新
+     wx.stopPullDownRefresh()
   },
 
   /**
@@ -116,16 +132,19 @@ Page({
   },
   /*banner 跳转*/ 
   bannerLink: function(e) {
+    
     const u = '../bannerActivity/bannerActivity?id=' + e.currentTarget.dataset.id;
     const d ='banner携带参数';
-    this.tlNavigateTo(u,d)
+    common.tlNavigateTo(u,d)
   },
   /*首页菜单栏跳转*/
   tlMenuBar:function(e){
-    const u = "../specialSale/specialSale?id=" + e.currentTarget.dataset.id;
-    const d = '菜单栏携带参数';
-    this.tlNavigateTo(u, d);
+    const d = e.currentTarget.dataset.text;
+    const u = "../specialSale/" + e.currentTarget.dataset.name + "/" + e.currentTarget.dataset.name + "?id=" + e.currentTarget.dataset.id + '&title=' + e.currentTarget.dataset.text;
+   
     console.log(u)
+    common.tlNavigateTo(u,d);
+
   },
 
  
@@ -146,31 +165,10 @@ console.log("打电话")
     const u = "../detailPage/detailPage?id=" + e.currentTarget.dataset.id;
     const d = '菜单栏携带参数';
     console.log(u)
-    this.tlNavigateTo(u, d);
+    common.tlNavigateTo(u, d);
   },
 
 
 
-  /*调用页面跳转*/
-  tlNavigateTo: function (u, d) {
-    console.log('打开' + u)
-    wx.navigateTo({
-      url: u,
-      events: {
-        // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
-        acceptDataFromOpenedPage: function (data) {
-          console.log("获取被打开页面传送到当前页面的数据1")
-          console.log(data)
-        },
-        someEvent: function (data) {
-          console.log("获取被打开页面传送到当前页面的数据2")
-          console.log(data)
-        }
-      },
-      success: function (res) {
-        // 通过eventChannel向被打开页面传送数据
-        res.eventChannel.emit('acceptDataFromOpenerPage', { data: '向被打开页面传送数据' + d })
-      }
-    })
-  }
+
 })

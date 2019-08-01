@@ -1,2 +1,59 @@
 <!--pages/detailPage/detailPage.wxml-->
-<text>pages/detailPage/detailPage.wxml</text>
+<view class="tl-container">
+  <view class="tl-largermap">
+    <swiper autoplay="true" bindchange="displayNumber" current="{{current}}">
+      <block wx:for="{{imgUrls}}" wx:key="*this" >
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" mode="aspectFill" />
+        </swiper-item>
+      </block>
+    </swiper>
+    <text class="tl-largerfigure">{{current+1}} / {{imgUrls.length}}</text>
+  </view>
+  <view class="tl-dishname">
+    <text>{{dishName}}</text>
+    <icon class="iconfont icon-fenxiang"></icon>
+  </view>
+  <view class="tl-Price-details">
+    <view class="tl-Price-li">
+      <view>
+        <text class="tl-present">￥{{present}}</text>
+        <text class="tl-ruling">￥{{ruling}}</text>
+      </view>
+    </view>
+    <view class="tl-Price-li">
+      <text class="tl-current">运费 ￥{{freight}}</text>
+      <text class="tl-browse">浏览{{browse}}次</text>
+    </view>
+    <view class="tl-Price-li">
+      <view>
+        <text class="tl-vipcard">{{vipcard}}</text>
+      </view>
+      <view class="tl-recommend">{{recommend}}</view>
+    </view>
+  </view>
+  <view class="tl-dynamic">
+    <view bindtap="tlLikenumInt" animation="{{animation}}" data-praise="{{praise}}" class="tl-dianzan {{praise==true?'tl-dianzan-active':''}}">
+    <icon class="iconfont icon-dianzan2"></icon>
+    </view>
+    <view class="tl-people-counting">{{imgName.length}}人觉得赞</view>
+    <view class="tl-pltx">
+           <block wx:for="{{imgName}}" wx:key="*this" >
+          <image src="{{item.url}}" mode="widthFix"></image>
+          </block>
+              <!-- <view wx:if="{{praise}}" class="tl-wxtx">
+              <open-data type="userAvatarUrl"></open-data>
+              </view> -->
+    </view>
+  </view>
+  <view>
+    <view>
+    <view>详情</view>
+    <view>|</view>
+    <view>商品评论</view>
+  </view>
+  <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+  <button bindtap="hqxxzs">获取头像</button>
+  </view>
+
+</view>

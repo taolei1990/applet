@@ -1,0 +1,53 @@
+<!--pages/specialSale/Promotion/Promotion.wxml-->
+<view>
+<!--页面加载动画组件-->
+<my-component  bindcustomevent="pageEventListener1" loading-hidden="{{loadingHidden}}"></my-component>
+<!--页面加载动画组件-->
+  <view class="tl-sorting-tab">
+    <block wx:for='{{theSorting}}' wx:key='{{item.indexs}}'>
+      <view data-num="{{item.indexs}}" data-rank="{{item.rank}}" class="tl-sortingsa {{active==item.indexs?'active':''}}" 
+       bindtap="tonActive" data-id="{{item.id}}">
+      {{item.text}}
+      <block wx:if="{{item.rank}}">
+      <icon wx:if="{{sort==='up'||sort==true}}" class="iconfont icon-paixujiantoushang"></icon>
+      <icon wx:if="{{sort==='do'||sort==true}}" class="iconfont icon-paixujiantouxia"></icon>
+      </block>
+      </view>
+    </block>
+  </view>
+  <view class="tl-Product-list">
+
+    <view class="tl-recommended">
+      <view class="tl-product-list">
+        <block wx:for='{{recommendGreens}}' wx:key="{{item.id}}">
+          <view class="tl-product-time" bindtap="productShopNow" data-id="{{item.id}}">
+            <view class="product-time-img">
+              <image src="{{item.productUrl}}" mode="widthFix"></image>
+            </view>
+            <view class="product-time-introduce">
+              <view class="product-time-name">
+                <text>{{item.productName}}</text>
+              </view>
+              <view class="product-time-discount">
+                <text class="product-time-current">￥{{item.productCurrent}}</text>
+                <text class="product-time-original">￥{{item.productOriginal}}</text>
+              </view>
+              <view class="product-time-statistics">
+                <text>{{item.productPreview}}浏览</text>
+                <text>{{item.productPraise}}赞</text>
+                <text>{{item.productComment}}评论</text>
+                <text>{{item.productDays}}</text>
+              </view>
+            </view>
+            <!-- <view class="product-time-purchase">
+            <button>立即购买</button>
+          </view> -->
+          </view>
+        </block>
+      </view>
+    </view>
+
+  </view>
+ <view wx:if="{{condition}}"> True </view>
+
+   </view>
