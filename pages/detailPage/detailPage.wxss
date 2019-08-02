@@ -40,7 +40,7 @@ height: 600rpx;
   color: rgb(241, 85, 12)
 }
 .tl-Price-details{
-  padding: 0 20rpx;
+  padding: 10rpx 20rpx;
   background-color: #fff;
   font-size: 24rpx;
   color: #999
@@ -99,6 +99,7 @@ height: 600rpx;
    border-radius: 60rpx;
    margin: 10rpx;
    overflow: hidden;
+   background-color: #eee;
 }
 .tl-dianzan .iconfont{
   font-size: 40rpx;
@@ -115,4 +116,22 @@ height: 600rpx;
   margin: 10rpx 0;
   font-size: 26rpx;
   color: #999
+}
+.tl-tabcur{
+  background-color: #fff;
+  padding: 40rpx 0;
+}
+.tl-graphic-introduction image{
+width: 100%;
+}
+.tl-input{
+  height: 60rpx;
+  background-color: #eee;
+padding:0 20rpx;
+line-height: 60rpx;
+border-radius: 50px;
+}
+.bg-grey{
+  background-color: #eee;
+  color: #333
 }

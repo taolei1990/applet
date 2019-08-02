@@ -1,1 +1,119 @@
 /* pages/order/order.wxss */
+.VerticalNav.nav {
+  width: 200rpx;
+  white-space: initial;
+}
+
+.VerticalNav.nav .cu-item {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin: 0;
+  border: none;
+  height: 50px;
+  position: relative;
+}
+
+.VerticalNav.nav .cu-item.cur {
+  background-color: #f1f1f1;
+}
+.VerticalNav.nav .cu-item.cur::after {
+  content: "";
+  width: 8rpx;
+  height: 30rpx;
+  border-radius: 10rpx 0 0 10rpx;
+  position: absolute;
+  background-color: currentColor;
+  top: 0;
+  right: 0rpx;
+  bottom: 0;
+  margin: auto;
+}
+.VerticalBox{
+  display: flex;
+}
+.VerticalMain{
+  background-color: #f1f1f1;
+}
+.tl-shousuosp{
+  padding:0 10px 10px 10px;
+  background-color: #fff;
+  height: 40px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee
+}
+.tl-search{
+background-color: #eee;
+border-radius: 20px;
+padding:5px 10px ;
+}
+.cu-list.menu-avatar>.cu-item .action {
+width: auto;
+text-align: center;
+}
+.tl-srsl{
+  display: flex;
+  display: -webkit-flex;
+align-items: center
+}
+.tl-srsl input{
+  width: 60rpx;
+  height: 60rpx;
+  text-align:  center;
+  line-height: 60rpx;
+ 
+    border-bottom: 1px solid #666;
+}
+.tl-srsl .addedo{
+  font-size: 32rpx;
+  border: 1px solid #666;
+  border-radius: 55px;
+  width: 60rpx;
+  height:60rpx;
+  text-align:  center;
+  line-height: 60rpx;
+  margin: 0 10rpx;
+}
+.padding-lr {
+padding-left: 0;
+  padding-right: 0;
+  
+}
+.padding-top{
+padding-top: 0
+}
+.cu-list+.cu-list {
+margin-top: 0;
+}
+.VerticalNav.nav .cu-item.cur{
+  background-color: #fff;
+}
+.VerticalNav.nav .cu-item {
+background-color: #f1f1f1
+}
+.cu-list.menu-avatar>.cu-item>.cu-avatar {
+left: 20rpx;
+}
+.cu-list.menu-avatar>.cu-item .content {
+left: 130rpx;
+}
+
+.cu-list.menu-avatar>.cu-item .content{
+  width: auto;
+}
+.Tl-cart{
+  font-size: 42rpx;
+  color: rgb(240, 67, 24);
+  margin-right: 20rpx;
+}
+.tl-pdl text{
+  margin-right: 10rpx;
+  font-size: 22rpx
+}
+.tl-cut{
+  font-size: 32rpx;
+  color: rgb(240, 67, 24);
+}
+.tl-cut-pre{
+  text-decoration:  line-through
+}

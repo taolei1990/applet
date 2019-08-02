@@ -6,6 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    texts: ['图文详情', '商品评论'],
+    TabCur: 0,
+    scrollLeft: 0,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     animation: [],
     imgUrls: [
@@ -27,6 +30,24 @@ Page({
       { id: "w2", url: '../../static/img/20160801192552_rYQdJ.thumb.700_0.jpeg'}
     ],
     praise: false,//点赞标识
+    cotList:[
+      {
+        id:'w1',
+        name:"磊师傅" ,
+        inputValue:'输入的内容1',
+        imgUrls:"/static/img/20160801192552_rYQdJ.thumb.700_0.jpeg",
+        time:'2019年8月2日',
+        praise:true
+      },
+      {
+        id: 'w2',
+        name: "磊师傅",
+        inputValue: '输入的内容2',
+        imgUrls: "/static/img/20160801192552_rYQdJ.thumb.700_0.jpeg",
+        time: '2019年8月2日',
+        praise: false
+      }
+    ]
   },
 
   /**
@@ -61,6 +82,7 @@ Page({
           }
         }
       })
+   
   },
   bindGetUserInfo(e) {
     console.log(e.detail.userInfo);
@@ -160,5 +182,61 @@ Page({
       })
    
   },
+  tabSelect(e) {
+    this.setData({
+      TabCur: e.currentTarget.dataset.id,
+      scrollLeft: (e.currentTarget.dataset.id - 1) * 60
+    })
+  },
+  //添加评论
+  bindKeyfirm:function(e){
+    const mThis=this
+    const timethis = common.curentTime()//获取当前时间
+    var myDate = new Date();
+    var inputValue= e.detail.value
+    var cotListarr =this.data.cotList
+    wx.getSetting({
+      success(res) {
+        if (res.authSetting['scope.userInfo']) {
+          // 已经授权，可以直接调用 getUserInfo 获取头像昵称
+          wx.getUserInfo({
+            success: function (res) {
+              let userInfo = res.userInfo
+              let nickName = userInfo.nickName
+              let avatarUrl = userInfo.avatarUrl
+              let puscotList = {
+                name: nickName,
+                inputValue: inputValue,
+                imgUrls: avatarUrl,
+                time: "刚刚",
+                praise: false
+              }
+          
+              cotListarr.unshift(puscotList)
+    
+              mThis.setData({
+                cotList: cotListarr
+              })
+            }
+          })
+        }
+      }
+    })
+  },
+  //评论点赞
+  tapPraise:function(e){
+    let pr = this.data.cotList[e.currentTarget.dataset.index]
+    console.log(pr.praise)
+    if (pr.praise){
+      pr.praise=false
+      console.log(pr)
+    }else{
+      pr.praise = true
+      console.log(pr)
+    }
+    this.setData({
+        cotList: this.data.cotList
+    })
+  }
 
 })
