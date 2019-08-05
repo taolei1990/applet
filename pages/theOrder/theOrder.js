@@ -1,11 +1,13 @@
 // pages/theOrder/theOrder.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    count:1,
+   sumTotal: app.globalData.sumTotal,
   },
 
   /**
@@ -62,5 +64,36 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+  // 加入购物车
+  ofNumberAdd: function (e) {
+    let ofNumber = this.data.count + 1
+    this.data.count = ofNumber
+    getApp().globalData.sumTotal = this.data.count
+    this.setData({
+      count: this.data.count,
+      bgorange: true,
+      sumTotal: app.globalData.sumTotal
+    })
+
+  },
+
+  // 移除购物车
+  ofNumberRed: function (e) {
+    let ofNumber = this.data.count - 1
+    this.data.count = ofNumber
+    getApp().globalData.sumTotal = this.data.count
+    if (ofNumber <= 0) {
+      this.setData({
+        count: 0,
+        bgorange: false,
+        sumTotal: app.globalData.sumTotal
+      })
+    } else {
+      this.setData({
+        count: this.data.count
+      })
+    }
+
+  },
 })

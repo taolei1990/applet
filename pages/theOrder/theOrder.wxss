@@ -1,1 +1,50 @@
 /* pages/theOrder/theOrder.wxss */
+.tl-title{
+ 
+  flex-grow:  1;
+ 
+}
+.tl-sp-imag{
+  width: 160rpx;
+}
+.tl-floxb{
+   display: flex;
+   padding: 0 0 0 30rpx;
+   justify-content:  space-between;
+   align-items: center;
+}
+.tl-namejg{
+  flex-grow: 1;
+  padding:0 30rpx;
+}
+.tl-namejg>text{
+  display: block;
+color: rgb(241, 43, 43);
+font-size: 32rpx;
+padding-top: 60rpx;
+}
+.tl-addmove{
+  display: flex;
+  align-items: center;
+  justify-content: space-between
+}
+.tl-addmove>input{
+  width: 60rpx;
+  text-align: center;
+  padding-left: 20rpx;
+}
+.tl-addmove>text{
+font-size: 44rpx;
+padding: 20rpx 10rpx;
+}
+.tl-group-list{
+  padding: 20rpx 0;
+  background-color: #fff;
+  margin-top: 1px;
+}
+.tl-qujieshuan{
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}

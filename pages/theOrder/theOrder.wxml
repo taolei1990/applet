@@ -1,2 +1,57 @@
 <!--pages/theOrder/theOrder.wxml-->
-<text>pages/theOrder/theOrder.wxml</text>
+<view class="tl-group-list">
+  <view class="cu-form-group">
+    <view>
+      <checkbox class="round blue" checked></checkbox>
+    </view>
+    <view class="tl-title">
+      <view class="tl-floxb">
+        <view class="tl-sp-imag">
+          <image src="../../static/img/20190730142546.png" mode="widthFix"></image>
+        </view>
+        <view class="tl-namejg" >
+        <view>名字</view>
+        <text >￥</text>
+        </view>
+        <view class="tl-addmove">
+          <text bindtap="ofNumberRed" class="cuIcon-move"></text>
+          <input type="number" value="{{count}}"></input>
+          <text bindtap="ofNumberAdd" class="cuIcon-add"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="tl-group-list">
+  <view class="cu-form-group">
+    <view>
+      <checkbox class="round blue" checked></checkbox>
+    </view>
+    <view class="tl-title">
+      <view class="tl-floxb">
+        <view class="tl-sp-imag">
+          <image src="../../static/img/20190730142546.png" mode="widthFix"></image>
+        </view>
+        <view class="tl-namejg" >
+        <view>名字</view>
+        <text >￥</text>
+        </view>
+        <view class="tl-addmove">
+          <text bindtap="ofNumberRed" class="cuIcon-move"></text>
+          <input type="number" value="{{count}}"></input>
+          <text bindtap="ofNumberAdd" class="cuIcon-add"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  </view>
+  <view class="tl-qujieshuan">
+  <view class="cu-bar bg-white tabbar border shop">
+       <checkbox class="round blue" checked></checkbox>全选
+    <view class="action text-orange">
+     合计:<text>76</text>
+    </view>
+ 
+    <view class="bg-red submit">立即订购</view>
+  </view>
+  </view>

@@ -1,4 +1,5 @@
 // pages/detailPage/detailPage.js
+const app = getApp();
 var common = require('../../common/common.js')
 Page({
 
@@ -6,6 +7,11 @@ Page({
    * 页面的初始数据
    */
   data: {
+    mold:"",
+    count:1,
+    bgorange:false,//按钮背景标识
+    sumTotal: app.globalData.sumTotal,
+    gtext:'',
     texts: ['图文详情', '商品评论'],
     TabCur: 0,
     scrollLeft: 0,
@@ -47,7 +53,38 @@ Page({
         time: '2019年8月2日',
         praise: false
       }
-    ]
+    ],
+    checkbox: [{
+      value: 0,
+      name: '不辣',
+      checked: false,
+      hot: false,
+    }, {
+      value: 1,
+      name: '微辣',
+      checked: false,
+      hot: false,
+    }, {
+      value: 2,
+      name: '中辣',
+      checked: false,
+      hot: false,
+    }, {
+      value: 3,
+      name: '特辣',
+      checked: false,
+      hot: false,
+    }, {
+      value: 4,
+      name: '魔鬼辣',
+      checked: false,
+      hot: true,
+    }, {
+      value: 5,
+      name: '变态辣',
+      checked: false,
+      hot: true,
+    }]
   },
 
   /**
@@ -93,6 +130,7 @@ Page({
    */
   onReady: function() {
     this.animation = wx.createAnimation()
+     
   },
 
   /**
@@ -133,9 +171,18 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
-
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '磊哥哥给你推荐',
+      // path: '/page/user?id=123',
+      imageUrl:'/static/img/20160801192552_rYQdJ.thumb.700_0.jpeg'
+    }
   },
+
   displayNumber: function(e) {
     this.setData({
       current: e.detail.current
@@ -237,6 +284,102 @@ Page({
     this.setData({
         cotList: this.data.cotList
     })
-  }
+  },
+  /*加入购物车弹窗*/
+  showModal(e) {
+    this.setData({
+      modalName: e.currentTarget.dataset.target,
+      gtext:e.currentTarget.dataset.text,
+      mold: e.currentTarget.dataset.tayp
+    })
+  },
+  getPurchased:function(e){
+    if (this.data.mold == 'addCar') {
+      wx.showToast({
+        title: '加入购物车',
+        icon: 'success',
+        duration: 2000
+      })
+     
+    } if (this.data.mold == 'purchase') {
+      console.log("立即购买")
+    }
+    this.setData({
+      modalName: null,
+      sumTotal: app.globalData.sumTotal
+    })
+   
+  },
+  hideModal(e) {
+    this.setData({
+       modalName: null,
+      
+    })
+  },
+  chooseCheckbox(e) {
+    let items = this.data.checkbox;
+    let values = e.currentTarget.dataset.value;
+    for (let i = 0; i < items.length; ++i) {
+      items[i].checked = false;
+    }
+    for (let i = 0; i < items.length; ++i) {
+      if (items[i].value == values) {
+        items[i].checked = !items[i].checked;
+        break
+      }
+    }
+    this.setData({
+      checkbox: items,
+      bgorange: true
+    })
+  },
+  // 加入购物车
+  ofNumberAdd: function (e) {
+    let ofNumber = this.data.count + 1
+    this.data.count = ofNumber
+    getApp().globalData.sumTotal = this.data.count
+    this.setData({
+      count: this.data.count,
+      bgorange:true,
+      sumTotal: app.globalData.sumTotal
+    })
+    
+  },
+
+  // 移除购物车
+  ofNumberRed: function (e) {
+    let ofNumber = this.data.count - 1
+    this.data.count = ofNumber
+    getApp().globalData.sumTotal = this.data.count
+    if (ofNumber<=0){
+      this.setData({
+        count: 0,
+        bgorange: false,
+        sumTotal: app.globalData.sumTotal
+      })
+    }else{
+      this.setData({
+        count: this.data.count
+      })
+    }
+  
+  },
+
+  //输入时触发
+  onBindBlur: function (e) {
+    var re = Number(e.detail.value)
+    isNaN(re) ? re = 0 : ""
+    console.log(isNaN(re))
+    this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber = re;
+    this.setData({
+      list: this.data.list
+    })
+  },
+  switchHome(){
+    wx.switchTab({
+      url: '/pages/index/index'
+    })
+  },
+
 
 })

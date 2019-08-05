@@ -1,7 +1,13 @@
 
 //app.js
 App({
+  globalData: {
+    userInfo: null,
+    sumTotal:null
+  },
   onLaunch: function () {
+    console.log("首页")
+  
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -34,7 +40,13 @@ App({
       }
     })
   },
-  globalData: {
-    userInfo: null
+  onShow(options) {
+    // Do something when show.
+    if (this.globalData.sumTotal!=null){
+    wx.setTabBarBadge({
+      index: 2,
+      text: this.globalData.sumTotal
+    })
+  }
   }
 })
