@@ -22,14 +22,22 @@ function tlNavigateTo(u, d) {
   })
 }
 //根据值找元素在数组中的位置索引
-function indexOf(val,arr) {
-   for (var i = 0; i < arr.length; i++) {
-      if (arr[i].id == val) { return i; }
-   
+function indexOf(id,arr) {
+  for (let i = 0, len = arr.length; i < len; i++) {
+      if (arr[i].id == id) { 
+      return i; 
+      }
    }
    return -1;
 }
-
+/*数组求和*/ 
+function sum(arr) {
+  var s = 0;
+  for (var i = 0, len = arr.length; i < len; i++) {
+    s += arr[i];
+  }
+  return s;
+}
 //---------------------------------------------------  
 // 判断闰年  
 //---------------------------------------------------  
@@ -305,5 +313,6 @@ function curentTime() {
 module.exports = {
   tlNavigateTo: tlNavigateTo,
   indexOf:indexOf,
-  curentTime: curentTime
+  curentTime: curentTime,
+  sum: sum
 }

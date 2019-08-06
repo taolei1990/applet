@@ -1,8 +1,11 @@
 <!--pages/theOrder/theOrder.wxml-->
-<view class="tl-group-list">
+
+<view wx:for="{{cartOrder}}" wx:key class="tl-group-list" >
   <view class="cu-form-group">
     <view>
-      <checkbox class="round blue" checked></checkbox>
+    <checkbox-group bindchange="checkboxChange" data-id="{{item.id}}" data-count="{{item.count}}" data-price="{{item.price}}">
+      <checkbox class="round blue" data-value="{{item.count}}" checked = "{{item.checked}}" data-price="{{item.price*item.count}}" value="{{item.price*item.count}}" ></checkbox> 
+      </checkbox-group>
     </view>
     <view class="tl-title">
       <view class="tl-floxb">
@@ -10,46 +13,24 @@
           <image src="../../static/img/20190730142546.png" mode="widthFix"></image>
         </view>
         <view class="tl-namejg" >
-        <view>名字</view>
-        <text >￥</text>
+        <view>{{item.name}}</view>
+        <text >￥{{item.price}}</text>
         </view>
         <view class="tl-addmove">
-          <text bindtap="ofNumberRed" class="cuIcon-move"></text>
-          <input type="number" value="{{count}}"></input>
-          <text bindtap="ofNumberAdd" class="cuIcon-add"></text>
+          <text bindtap="ofNumberRed" data-price="{{item.id}}" class="cuIcon-move"></text>
+          <input type="number" data-price="{{item.id}}" value="{{item.count}}"></input>
+          <text bindtap="ofNumberAdd" data-price="{{item.id}}" class="cuIcon-add"></text>
         </view>
       </view>
     </view>
   </view>
   </view>
-  <view class="tl-group-list">
-  <view class="cu-form-group">
-    <view>
-      <checkbox class="round blue" checked></checkbox>
-    </view>
-    <view class="tl-title">
-      <view class="tl-floxb">
-        <view class="tl-sp-imag">
-          <image src="../../static/img/20190730142546.png" mode="widthFix"></image>
-        </view>
-        <view class="tl-namejg" >
-        <view>名字</view>
-        <text >￥</text>
-        </view>
-        <view class="tl-addmove">
-          <text bindtap="ofNumberRed" class="cuIcon-move"></text>
-          <input type="number" value="{{count}}"></input>
-          <text bindtap="ofNumberAdd" class="cuIcon-add"></text>
-        </view>
-      </view>
-    </view>
-  </view>
-  </view>
+
   <view class="tl-qujieshuan">
   <view class="cu-bar bg-white tabbar border shop">
-       <checkbox class="round blue" checked></checkbox>全选
+       <checkbox  bindtap="chooseCheckbox" data-checked="{{checked}}" class="round blue"></checkbox>全选
     <view class="action text-orange">
-     合计:<text>76</text>
+     合计:<text>{{sum}}</text>
     </view>
  
     <view class="bg-red submit">立即订购</view>
