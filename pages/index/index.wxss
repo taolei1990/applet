@@ -104,7 +104,7 @@
   -webkit-tap-highlight-color: transparent;
   overflow: hidden;
   color: #000;
-  background-color: #f8f8f8;
+  background-color: transparent;
 }
 
 .tl-lxfstb button::after {

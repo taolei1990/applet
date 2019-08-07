@@ -18,7 +18,7 @@
         </view>
         <view class="tl-addmove">
           <text bindtap="ofNumberRed" data-price="{{item.id}}" class="cuIcon-move"></text>
-          <input type="number" data-price="{{item.id}}" value="{{item.count}}"></input>
+          <input type="number" disabled data-price="{{item.id}}" value="{{item.count}}"></input>
           <text bindtap="ofNumberAdd" data-price="{{item.id}}" class="cuIcon-add"></text>
         </view>
       </view>
@@ -28,7 +28,7 @@
 
   <view class="tl-qujieshuan">
   <view class="cu-bar bg-white tabbar border shop">
-       <checkbox  bindtap="chooseCheckbox" data-checked="{{checked}}" class="round blue"></checkbox>全选
+       <checkbox  bindtap="chooseCheckbox" data-checked="{{checked}}" checked="{{checked}}" class="round blue"></checkbox>全选
     <view class="action text-orange">
      合计:<text>{{sum}}</text>
     </view>

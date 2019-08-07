@@ -14,7 +14,8 @@
     "pages/specialSale/connectus/connectus",
     "pages/specialSale/classification/classification",
     "pages/loadingHidden/loadingHidden",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/e-signature/e-signature"
   ],
   "window": {
     "navigationBarBackgroundColor": "#fff",

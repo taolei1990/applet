@@ -1,9 +1,9 @@
 /*调用页面跳转*/
-function tlNavigateTo(u, d) {
-  console.log('打开' + u)
-  console.log('得到' + d)
+function tlNavigateTo(url, datas) {
+  console.log('打开' + url)
+  console.log('得到' + datas)
   wx.navigateTo({
-    url: u,
+    url: url,
     events: {
       // 为指定事件添加一个监听器，获取被打开页面传送到当前页面的数据
       acceptDataFromOpenedPage: function (data) {
@@ -17,7 +17,7 @@ function tlNavigateTo(u, d) {
     },
     success: function (res) {
       // 通过eventChannel向被打开页面传送数据
-      res.eventChannel.emit('acceptDataFromOpenerPage', { data: d })
+      res.eventChannel.emit('acceptDataFromOpenerPage', { data: datas })
     }
   })
 }

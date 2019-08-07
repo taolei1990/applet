@@ -95,25 +95,20 @@ Page({
   ofNumberAdd: function (e) {
     let ind = common.indexOf(e.currentTarget.dataset.price,this.data.cartOrder);
     let inds = common.indexOf(e.currentTarget.dataset.price,this.data.cartPitch.list);
-    let ofNumber = this.data.cartOrder[ind].count+1;
-    this.data.cartOrder[ind].count = ofNumber
-  
-    if (inds != -1){
-    
-      let c = this.data.cartPitch.list[inds].count
-      this.data.cartPitch.list[inds].count = c+1
-      let s=0
-      for (let i = 0, len = this.data.cartPitch.list; i < len.length;i++){
-        s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
-      }
-      this.setData({
-        sum: s
-      })
-}
+    this.data.cartOrder[ind].count = this.data.cartOrder[ind].count + 1
+ 
+
+    let s = 0
+    for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
+      s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
+    }
+
+    console.log(this.data.cartPitch.list)
     // this.data.cartOrder[inds].checked = false
     this.setData({
       cartOrder: this.data.cartOrder,
-      cartPitch: this.data.cartPitch
+      cartPitch: this.data.cartPitch,
+      sum: s
     })
   
   },
@@ -125,7 +120,7 @@ Page({
     let inds = common.indexOf(e.currentTarget.dataset.price, this.data.cartPitch.list);
     let ofNumber = this.data.cartOrder[ind].count -1;
     this.data.cartOrder[ind].count = ofNumber
-
+    console.log(this.data.cartPitch.list)
     if (ofNumber <= 0) {
       wx.showModal({
         title: '提示',
@@ -153,12 +148,6 @@ Page({
         cartOrder: mThis.data.cartOrder,
       })
     }
-  
-    if (inds != -1) {
-
-      let c = this.data.cartPitch.list[inds].count
-      this.data.cartPitch.list[inds].count = c - 1
-
       let s = 0
       for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
         s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
@@ -166,19 +155,25 @@ Page({
       this.setData({
         sum: s
       })
-    }
+  
   },
   /* 全选 */
   chooseCheckbox:function(e){
     let s=0
     if (e.currentTarget.dataset.checked) {
+      console.log("全不选")
+      this.data.cartPitch.list.length = 0
+       console.log(this.data.cartPitch.list)
       this.data.cartOrder.forEach(one => {
         one.checked = false
       })
       this.data.checked=false
        s=0
     } else {
-  
+      console.log("全选")
+      this.data.cartPitch.list.length = 0
+      this.data.cartPitch.list = this.data.cartPitch.list.concat(this.data.cartOrder)
+      console.log(this.data.cartPitch.list)
       this.data.cartOrder.forEach(one => {
         one.checked = true
         s += one.price * one.count
@@ -198,34 +193,44 @@ Page({
     let s = 0;
     let inds = common.indexOf(e.currentTarget.dataset.id, this.data.cartPitch.list)
     let ind = common.indexOf(e.currentTarget.dataset.id, this.data.cartOrder)
+
     if (e.detail.value.length == 1){
      console.log("选中")
-      this.data.cartPitch.list.push({
-              id: e.currentTarget.dataset.id,
-             count: e.currentTarget.dataset.count,
-             price: e.currentTarget.dataset.price,
-      })
-      this.data.cartOrder[ind].checked=true
+      this.data.cartPitch.list=this.data.cartPitch.list.concat(this.data.cartOrder[ind])
+      console.log(this.data.cartPitch.list)
+
+      this.data.cartOrder[ind].checked=true,
+
       this.setData({
         cartPitch: this.data.cartPitch,
-        cartOrder: this.data.cartOrder
+        cartOrder: this.data.cartOrder,
       })
+      if (this.data.cartPitch.list.length == this.data.cartOrder.length) {
+        this.setData({
+          checked: true
+        })
+      }
     }else{
-      
+     
       // this.data.cartPitch.aggAmo.splice(ind, 1)
       console.log("没选中")
+      console.log(inds)
+      console.log(this.data.cartPitch.list)
       this.data.cartPitch.list.splice(inds, 1)
       this.data.cartOrder[ind].checked = false
       this.setData({
         cartPitch: this.data.cartPitch,
-        cartOrder: this.data.cartOrder
+        cartOrder: this.data.cartOrder,
+        checked: false
       })
+      console.log(this.data.checked)
     }
     for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
       s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
     }
     this.setData({
-      sum: s
+      sum: s,
+    
     })
   }
   

@@ -36,7 +36,8 @@
 .tl-addmove>input {
   width: 60rpx;
   text-align: center;
-  padding-left: 20rpx;
+  padding-left: 0rpx;
+   padding-right: 0rpx;
 }
 
 .tl-addmove>text {
