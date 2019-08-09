@@ -1,0 +1,15 @@
+<!--pages/search/search.wxml-->
+  <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索所有商品" bindinput='bindInput' bindblur='bindBlur' bindconfirm='bindConfirm' confirm-type="search"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-{{exist}} shadow-blur round">取消</button>
+    </view>
+  </view>
+<view>
+<view>
+搜索记录
+</view>
+</view>

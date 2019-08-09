@@ -11,14 +11,35 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     CustomBar: app.globalData.CustomBar,
-    starCount: 3,
-    forksCount: 2,
-    visitTotal: 0,
+    gridBorder:true,
+    iconList: [{
+      icon: 'deliver_fill',
+      color: 'red',
+      badge: 120,
+      name: '未付款'
+    }, {
+      icon: 'goodsnewfill',
+      color: 'orange',
+      badge: 2,
+      name: '待取货'
+    }, {
+      icon: 'squarecheckfill',
+      color: 'yellow',
+      badge: 4,
+      name: '已完成'
+    }, {
+        icon: 'roundclosefill',
+      color: 'olive',
+      badge: 3,
+      name: '已关闭'
+      }],
+    gridCol: 4,
   },
 
   onLoad: function () {
     wx.getSetting({
       success(res) {
+       
         console.log(res.authSetting)
         // res.authSetting = {
         //   "scope.userInfo": true,
@@ -26,14 +47,14 @@ Page({
         // }
       }
     })
-
-
+  
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: true
       })
     } else if (this.data.canIUse) {
+      
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       app.userInfoReadyCallback = res => {
@@ -43,6 +64,7 @@ Page({
         })
       }
     } else {
+     
       // 在没有 open-type=getUserInfo 版本的兼容处理
       wx.getUserInfo({
         success: res => {
@@ -54,9 +76,10 @@ Page({
         }
       })
     }
+  
+    console.log(app.globalData.userInfo)
   },
   getUserInfo: function (e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
@@ -116,6 +139,12 @@ Page({
     const url = '../e-signature/e-signature';
     const data = '携带参数';
     common.tlNavigateTo(url, data)
+  },
+  allOrders:function(e){
+    console.log(e.currentTarget.dataset.praise)
+    const mid = e.currentTarget.dataset.id
+    const url = '../allorders/allorders?id='+mid;
+    const data = '携带参数';
+    common.tlNavigateTo(url, data)
   }
-
 })

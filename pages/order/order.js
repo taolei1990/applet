@@ -1,4 +1,5 @@
 const app = getApp()
+var common = require('../../common/common.js')
 Page({
   data: {
 
@@ -109,5 +110,11 @@ Page({
      this.setData({
        list: this.data.list
      })
-   }
+   },
+   //点击转跳搜索界面
+  searchResult:function(){
+    const url = '../search/search?id=w1';
+    const data = '携带参数';
+    common.tlNavigateTo(url, data)
+  }
 })

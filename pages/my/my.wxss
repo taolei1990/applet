@@ -21,7 +21,7 @@
 }
 .UCenter-bg {
   /* background-image: url(https://image.weilanwl.com/color2.0/index.jpg); */
-  background-color: rgb(48, 222, 245);
+  background-color:#f37b1d;/* rgb(48, 222, 245);*/
   background-size: cover;
   height: 550rpx;
   display: flex;
@@ -65,4 +65,8 @@ map,.mapBox{
 map,.mapBox{
   width: 750rpx;
   height: 300rpx;
+}
+.tl-action{
+  color: #999;
+  font-size: 26rpx;
 }

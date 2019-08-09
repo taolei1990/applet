@@ -15,19 +15,20 @@
     "pages/specialSale/classification/classification",
     "pages/loadingHidden/loadingHidden",
     "pages/logs/logs",
-    "pages/e-signature/e-signature"
+    "pages/e-signature/e-signature",
+    "pages/allorders/allorders",
+    "pages/search/search"
   ],
   "window": {
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#f37b1d",
+    "navigationBarTextStyle": "white",
     "navigationBarTitleText": " ",
     "enablePullDownRefresh": true,
-    "navigationBarTextStyle": "black",
-    "backgroundColor": "#fff",
     "backgroundTextStyle": "dark"
   },
   "tabBar": {
     "color": "#8a8a8a",
-    "selectedColor": "#e0620d",
+    "selectedColor": "#f37b1d",
     "list": [
       {
         "pagePath": "pages/index/index",

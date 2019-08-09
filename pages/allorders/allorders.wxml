@@ -1,0 +1,53 @@
+<!--pages/allorders/allorders.wxml-->
+<view class="{{fixedNav?'tl-fixedNav':''}}">
+  <scroll-view scroll-x class="bg-white nav">
+    <view class="flex text-center">
+      <view class="cu-item flex-sub {{index==tabCur?'text-orange cur':''}}" wx:for="{{tabCurList}}" wx:key bindtap="tabSelect" data-ind="{{index}}" data-id="{{item.id}}" data-type="{{item.type}}">
+        {{item.name}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="{{fixedNav?'tl-fixedxlcd':''}}">
+  <view class="tl-xlcd">
+    <view wx:if='{{prompt}}' class="tl-prompt">
+      <image src="../../static/img/858PIC2018.png" mode="widthFix"></image>
+      <text>暂无订单</text>
+    </view>
+    <view wx:if='{{!prompt}}' class="tl-orderview">
+      <view class="tl-carton" bindlongpress="tlLongpress">
+        <view class="tl-carton-a">
+           <text>第一标题</text>
+           <text class="tl-biaos text-red">未付款</text>
+        </view>
+        <view class="tl-carton-b">
+         <view>商品</view>
+         <view>下单时间</view>
+        </view>
+        <view class="tl-carton-c">
+          <view>商家</view>
+           <view class="tl-text-bt">
+           <button class="cu-btn round line-orange " >在来一单</button>
+           <button class="cu-btn round line-orange " >评价</button>
+          </view>
+        </view>
+      </view>
+       <view class="tl-carton" bindlongpress="tlLongpress">
+        <view class="tl-carton-a">
+          <text>第一标题</text>
+           <text class="tl-biaos text-red">未付款</text>
+        </view>
+        <view class="tl-carton-b">
+          第二
+        </view>
+        <view class="tl-carton-c">
+           <view>商家</view>
+           <view class="tl-text-bt">
+           <button class="cu-btn round line-orange " >在来一单</button>
+           <button class="cu-btn round line-orange " >评价</button>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

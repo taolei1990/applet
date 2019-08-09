@@ -12,12 +12,13 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #fff;
-  padding: 10rpx 0 15rpx 0;
+  padding: 20rpx 0 20rpx 0;
 }
 
 .tl-bar-item {
   width: 20%;
   text-align: center;
+  padding: 10rpx 0;
 }
 
 .tl-bar-box {
@@ -252,4 +253,36 @@ margin-left: 20rpx;
 }
 .tl-jieshao text{
   margin-left: 20rpx;
+}
+.tl-bar-icon{
+  font-size: 54rpx;
+  color: #f37b1d;
+}
+.tl-bar-item:nth-of-type(2) .tl-bar-icon{
+color: #8dc63f
+}
+.tl-bar-item:nth-of-type(3) .tl-bar-icon{
+color: #e54d42
+}
+.tl-bar-item:nth-of-type(4) .tl-bar-icon{
+color: #e03997
+}
+.tl-bar-item:nth-of-type(5) .tl-bar-icon{
+color: #0081ff
+}
+.tl-bar-item:nth-of-type(6) .tl-bar-icon{
+color: #8799a3
+}
+.tl-uptc{
+padding-bottom: 60rpx;
+}
+.tl-uptc text{
+  color: #999;
+}
+.tl-uptc view{
+font-size: 32rpx;
+margin-bottom: 30rpx;
+}
+.tl-uptc image{
+  width: 180rpx; 
 }

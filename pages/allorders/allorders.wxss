@@ -1,0 +1,55 @@
+/* pages/allorders/allorders.wxss */
+
+.tl-fixedNav{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+.tl-fixedxlcd{
+  padding-top: 90rpx;
+}
+.tl-xlcd{
+ min-height:  calc( 100vh - 90rpx );
+   background-color: f2f2f2;
+}
+.tl-prompt{
+ padding-top: 30vh;
+
+text-align: center;
+}
+.tl-prompt>image{
+  width: 300rpx;
+}
+.tl-prompt>text{
+
+  display: block;
+  color: #666;
+}
+.tl-carton{
+  background-color: #fff;
+  padding:0 30rpx;
+  margin-bottom: 20rpx;
+}
+.tl-carton-a{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.tl-carton-b{
+  background-color: #fafafa;
+  padding: 30rpx;
+  margin: 0 -30rpx;
+}
+.tl-carton-c{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30rpx 0;
+}
+.tl-text-bt>button{
+  margin-left: 20rpx;
+
+}

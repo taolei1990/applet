@@ -13,7 +13,7 @@
     <block wx:for="{{menuBar}}" wx:key="{{item.id}}">
       <view class="tl-bar-item">
         <view class="tl-bar-box" bindtap="tlMenuBar" data-name='{{item.name}}' data-id="{{item.id}}" data-text="{{item.text}}">
-          <icon class="tl-bar-icon iconfont {{item.icon}}"></icon>
+          <text class="cuIcon-{{item.icon}}  tl-bar-icon" ></text>
           <text class="tl-bar-name">{{item.text}}</text>
         </view>
       </view>
@@ -112,13 +112,15 @@
       </view>
       <view class="tl-intro">
         <view class="tl-intro-img">
-          <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+          <image bindtap="imgyl" src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
           <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
         </view>
         <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
         <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
       </view>
-
     </view>
+  </view>
+    <view class="tl-ending">
+    <!-- <text class="tl-miaostext">鱼情未了餐厅为您服务</text> -->
   </view>
 </view>

@@ -1,9 +1,4 @@
 {
   "usingComponents": {},
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "点餐",
-    "navigationBarTextStyle": "black",
-  "backgroundColor": "#fff",
-  "backgroundTextStyle": "dark"
-
+  "navigationBarTitleText": "䔡情未了"
 }

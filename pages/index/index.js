@@ -20,12 +20,12 @@ Page({
       },
     ],
     menuBar:[
-      { text: "特卖", id: "w0", name:'Promotion', icon:"icon-dkw_wode"},
-      { text: "动态", id: "w1", name: 'dynamic', icon: "icon-yingyuanxinxicanyin" },
-      { text: "预约", id: "w2", name: 'subscribe', icon: "icon-gouwuche-xianxing" },
-      { text: "优惠券", id: "w3", name: 'discount', icon: "icon-icon_canyin" },
-      { text: "联系我们", id: "w4", name: 'connectus', icon: "icon-dkw_wode" },
-      { text: "分类主页", id: "w5", name: 'classification', icon: "icon-dkw_wode" }
+      { text: "特卖", id: "w0", name:'Promotion', icon:"shopfill"},
+      { text: "动态", id: "w1", name: 'dynamic', icon: "discoverfill" },
+      { text: "预约", id: "w2", name: 'subscribe', icon: "wefill" },
+      { text: "优惠券", id: "w3", name: 'sponsor', icon: "sponsorfill" },
+      { text: "联系我们", id: "w4", name: 'connectus', icon: "servicefill" },
+      { text: "分类主页", id: "w5", name: 'classification', icon: "similar" }
     ],
     recommendGreens:[{
      id:'w1',
@@ -168,7 +168,17 @@ console.log("打电话")
     common.tlNavigateTo(u, d);
   },
 
-
+  imgyl:function(){
+    /**图片预览 */
+  wx.previewImage({
+    current: 'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640', // 当前显示图片的http链接
+    urls: [
+      'https://images.unsplash.com/photo-1551334787-21e6bd3ab135?w=640',
+      'https://images.unsplash.com/photo-1551214012-84f95e060dee?w=640',
+      'https://images.unsplash.com/photo-1551446591-142875a901a1?w=640'
+    ] // 需要预览的图片http链接列表
+  })
+}
 
 
 })
