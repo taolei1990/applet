@@ -96,19 +96,15 @@ Page({
     let ind = common.indexOf(e.currentTarget.dataset.price,this.data.cartOrder);
     let inds = common.indexOf(e.currentTarget.dataset.price,this.data.cartPitch.list);
     this.data.cartOrder[ind].count = this.data.cartOrder[ind].count + 1
- 
-
-    let s = 0
-    for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
-      s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
-    }
+    this.setData({
+      sum: common.summation(this.data.cartPitch.list)
+    })
 
     console.log(this.data.cartPitch.list)
     // this.data.cartOrder[inds].checked = false
     this.setData({
       cartOrder: this.data.cartOrder,
       cartPitch: this.data.cartPitch,
-      sum: s
     })
   
   },
@@ -120,7 +116,7 @@ Page({
     let inds = common.indexOf(e.currentTarget.dataset.price, this.data.cartPitch.list);
     let ofNumber = this.data.cartOrder[ind].count -1;
     this.data.cartOrder[ind].count = ofNumber
-    console.log(this.data.cartPitch.list)
+  
     if (ofNumber <= 0) {
       wx.showModal({
         title: '提示',
@@ -133,11 +129,15 @@ Page({
               cartOrder: mThis.data.cartOrder,
             })
           } else if (res.cancel) {
-          
+      
             mThis.data.cartOrder[ind].count = 1
             mThis.data.cartPitch.list[inds].count =  1
             mThis.setData({
               cartOrder: mThis.data.cartOrder,
+            })
+
+            mThis.setData({
+              sum: common.summation(mThis.data.cartPitch.list)
             })
           }
         }
@@ -148,43 +148,46 @@ Page({
         cartOrder: mThis.data.cartOrder,
       })
     }
-      let s = 0
-      for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
-        s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
-      }
-      this.setData({
-        sum: s
-      })
+
+    this.setData({
+      sum: common.summation(this.data.cartPitch.list)
+    })
   
   },
   /* 全选 */
   chooseCheckbox:function(e){
-    let s=0
+    // let s=0
     if (e.currentTarget.dataset.checked) {
-      console.log("全不选")
       this.data.cartPitch.list.length = 0
-       console.log(this.data.cartPitch.list)
+      //  console.log(this.data.cartPitch.list)
       this.data.cartOrder.forEach(one => {
         one.checked = false
       })
       this.data.checked=false
-       s=0
+      //  s=0
+
+      this.setData({
+        sum: common.summation(this.data.cartPitch.list)
+      })
     } else {
-      console.log("全选")
+ 
       this.data.cartPitch.list.length = 0
       this.data.cartPitch.list = this.data.cartPitch.list.concat(this.data.cartOrder)
-      console.log(this.data.cartPitch.list)
+  
       this.data.cartOrder.forEach(one => {
         one.checked = true
-        s += one.price * one.count
+        // s += one.price * one.count
+      })
+
+      this.setData({
+        sum: common.summation(this.data.cartPitch.list)
       })
       this.data.checked = true
-     
     }
     this.setData({
       cartOrder: this.data.cartOrder,
       checked: this.data.checked,
-      sum: s
+      // sum: s
     })
 
   },
@@ -211,11 +214,7 @@ Page({
         })
       }
     }else{
-     
-      // this.data.cartPitch.aggAmo.splice(ind, 1)
-      console.log("没选中")
-      console.log(inds)
-      console.log(this.data.cartPitch.list)
+
       this.data.cartPitch.list.splice(inds, 1)
       this.data.cartOrder[ind].checked = false
       this.setData({
@@ -225,13 +224,12 @@ Page({
       })
       console.log(this.data.checked)
     }
-    for (let i = 0, len = this.data.cartPitch.list; i < len.length; i++) {
-      s += this.data.cartPitch.list[i].count * this.data.cartPitch.list[i].price
-    }
-    this.setData({
-      sum: s,
+
     
+    this.setData({
+      sum: common.summation(this.data.cartPitch.list)
     })
-  }
+  },
+
   
 })

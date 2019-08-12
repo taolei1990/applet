@@ -127,9 +127,9 @@
       <view  class="cuIcon-home">  </view>
     首页
     </view>
-    <view class="action">
+    <view bindtap="linkShoppingTrolley" class="action">
       <view class="cuIcon-cart">
-        <view wx:if="{{sumTotal!=null&&sumTotal!=0}}" class="cu-tag badge">{{sumTotal}}</view>
+        <view wx:if="{{Amount!=null&&Amount!='0'}}" class="cu-tag badge">{{Amount}}</view>
       </view>
       购物车
     </view>

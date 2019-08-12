@@ -38,6 +38,40 @@ function sum(arr) {
   }
   return s;
 }
+/** */
+function summation(list) {
+ 
+  let s = 0
+  for (let i = 0, len = list; i < len.length; i++) {
+    s += list[i].count * list[i].price
+  }
+return s
+}
+
+/**计算加入购物车的数量*/
+function amount(list) {
+
+  let amount = 0
+  for (let i = 0, len = list; i < len.length; i++) {
+    for (let j = 0, lens = list[i].listData; j < lens.length; j++) {
+      amount = amount + list[i].listData[j].ofNumber
+    }
+  }
+  return amount;
+}
+/** */
+function woSetTabBarBadge(i, s) {
+  if (s == "0") {
+    wx.removeTabBarBadge({
+      index: i,
+    })
+  } else {
+    wx.setTabBarBadge({
+      index: i,
+      text: s
+    })
+  }
+}
 //---------------------------------------------------  
 // 判断闰年  
 //---------------------------------------------------  
@@ -308,11 +342,12 @@ function curentTime() {
   return clock;
 } 
 
-
-
 module.exports = {
   tlNavigateTo: tlNavigateTo,
   indexOf:indexOf,
   curentTime: curentTime,
-  sum: sum
+  sum: sum,
+  amount: amount,
+  woSetTabBarBadge: woSetTabBarBadge,
+  summation: summation
 }

@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    Amount: app.globalData.Amount,
     mold:"",
     count:1,
     bgorange:false,//按钮背景标识
@@ -92,7 +93,9 @@ Page({
    */
   onLoad: function(option) { //获取上个页面的url带过来的值
     console.log(option.id)
-
+this.setData({
+  Amount: app.globalData.Amount
+})
     // const eventChannel = this.getOpenerEventChannel()
     // eventChannel.emit('acceptDataFromOpenedPage', {
     //   data: '给上一个页面传送当前页面的数据1'
@@ -380,6 +383,10 @@ Page({
       url: '/pages/index/index'
     })
   },
-
+  linkShoppingTrolley(){
+    wx.switchTab({
+      url: '/pages/theOrder/theOrder'
+    })
+  }
 
 })

@@ -3,11 +3,11 @@
 App({
   globalData: {
     userInfo: null,
-    sumTotal:null
+    sumTotal:null,
+    Amount: "0"
   },
   onLaunch: function () {
     console.log("首页")
-  
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

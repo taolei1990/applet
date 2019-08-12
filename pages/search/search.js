@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    exist:'gray'
+    exist:'gray',
+    searchList:[],
   },
 
   /**
@@ -20,12 +21,17 @@ Page({
    */
   onReady: function() {
     /**获取缓存 */
+    const mThis=this
     wx.getStorage({
-      key: 'key',
+      key: 'searchHistory',
       success(res) {
-        console.log(res.data)
+        mThis.setData({
+          searchList: res.data
+        })
+        console.log(mThis.data.searchList)
       }
     })
+    
   },
 
   /**
@@ -83,17 +89,22 @@ Page({
     
     }
   },
+  /**输入框失去焦点是触发 */
   bindBlur: function(e) {
     let value = e.detail.value
     console.log(value)
   },
   /**点击键盘完成事件 */
-  bindConfirm:function(){
+  bindConfirm: function (e){
     /** 设置缓存*/
-    wx.setStorage({
-      key: "key",
-      data: "value"
-    })
+    this.data.searchList.length = 6
+    this.data.searchList.unshift(e.detail.value)
+      wx.setStorage({
+        key: "searchHistory",
+        data: this.data.searchList
+      })
+
+
   }
 
 })

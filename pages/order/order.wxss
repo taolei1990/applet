@@ -61,13 +61,9 @@ align-items: center
   height: 60rpx;
   text-align:  center;
   line-height: 60rpx;
- 
-    border-bottom: 1px solid #666;
 }
 .tl-srsl .addedo{
-  font-size: 32rpx;
-  border: 1px solid #666;
-  border-radius: 55px;
+  font-size: 44rpx;
   width: 60rpx;
   height:60rpx;
   text-align:  center;

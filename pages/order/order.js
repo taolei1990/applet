@@ -2,10 +2,7 @@ const app = getApp()
 var common = require('../../common/common.js')
 Page({
   data: {
-
-    StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    Custom: app.globalData.Custom,
+    Amount: app.globalData.Amount,
     TabCur: 0,
     MainCur: 0,
     VerticalNavTop: 0,
@@ -23,14 +20,14 @@ Page({
       list[i] = {};
       list[i].name = String.fromCharCode(65 + i);
       list[i].id = i;
-      list[i].listData =[];
-      for(let j=0;j<3;j++){
+      list[i].listData = [];
+      for (let j = 0; j < 3; j++) {
         list[i].listData.push({
           id: String.fromCharCode(65 + i) + "-" + j,
           theNumber: 999,
           ofNumber: 0,
           price: i + j,
-          prePrice: i + j+2,
+          prePrice: i + j + 2,
         })
       }
     };
@@ -81,40 +78,48 @@ Page({
         return false
       }
     }
-  }
-,
-// 加入购物车
-  ofNumberAdd:function(e){
- 
+  },
+  // 加入购物车
+  ofNumberAdd: function(e) {
     let ofNumber = this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber + 1
     this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber = ofNumber
+    app.globalData.Amount = common.amount(this.data.list).toString()
     this.setData({
-    list: this.data.list
-  })
+      list: this.data.list,
+      Amount: app.globalData.Amount
+    });
+    common.woSetTabBarBadge(2, app.globalData.Amount)
   },
 
   // 移除购物车
-  ofNumberRed:function(e){
+  ofNumberRed: function(e) {
     let ofNumber = this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber - 1
     this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber = ofNumber
+    getApp().globalData.Amount = common.amount(this.data.list).toString()
     this.setData({
-      list: this.data.list
+      list: this.data.list,
+      Amount: app.globalData.Amount
     })
+    common.woSetTabBarBadge(2, app.globalData.Amount)
   },
   //输入时触发
-  onBindBlur:function(e){
+  onBindBlur: function(e) {
     var re = Number(e.detail.value)
     isNaN(re) ? re = 0 : ""
-    console.log(isNaN(re))
     this.data.list[e.currentTarget.dataset.mid].listData[e.currentTarget.dataset.index].ofNumber = re;
-     this.setData({
-       list: this.data.list
-     })
-   },
-   //点击转跳搜索界面
-  searchResult:function(){
+    getApp().globalData.Amount = common.amount(this.data.list).toString()
+    this.setData({
+      list: this.data.list,
+      Amount: app.globalData.Amount
+    })
+    common.woSetTabBarBadge(2,app.globalData.Amount)
+
+  },
+  //点击转跳搜索界面
+  searchResult: function() {
     const url = '../search/search?id=w1';
     const data = '携带参数';
     common.tlNavigateTo(url, data)
   }
+
 })
