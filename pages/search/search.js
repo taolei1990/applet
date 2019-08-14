@@ -7,6 +7,16 @@ Page({
   data: {
     exist:'gray',
     searchList:[],
+    dataSwitch:false,
+    cplist:[{
+      name:'菜A',
+      price:15,
+      id:"w1"
+    }, {
+        name: '菜B',
+        price: 16,
+        id: "w2"
+      }]
   },
 
   /**
@@ -28,7 +38,8 @@ Page({
         mThis.setData({
           searchList: res.data
         })
-        console.log(mThis.data.searchList)
+       
+    
       }
     })
     
@@ -38,7 +49,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
+    /**获取缓存 */
+    const mThis = this
+    wx.getStorage({
+      key: 'searchHistory',
+      success(res) {
+        mThis.setData({
+          searchList: res.data
+        })
+        console.log(mThis.data.searchList.length)
 
+      }
+    })
   },
 
   /**
@@ -97,14 +119,55 @@ Page({
   /**点击键盘完成事件 */
   bindConfirm: function (e){
     /** 设置缓存*/
-    this.data.searchList.length = 6
+    const mThis=this
     this.data.searchList.unshift(e.detail.value)
+    if (this.data.searchList.length > 6){
+      this.data.searchList.length=6
+    }
       wx.setStorage({
         key: "searchHistory",
-        data: this.data.searchList
+        data: this.data.searchList,
+        success(){
+          mThis.setData({
+            searchList: mThis.data.searchList
+          })
+        }
       })
+  },
+  /**清除缓存 */
+    tlEliminate:function(){
+      wx.removeStorage({
+        key: 'searchHistory',
+      })
+    
+      this.setData({
+        searchList:[]
+      })
+      console.log(this.data.searchList.length)
+    },
+    /**组件监听事件 */
+  myEventListener:function(e){
+    console.log("组件监听事件")
+    console.log(e.detail)
+  },
+  myCart:function(e){
 
-
+   let checkbox= [{
+      value: 0,
+      name: '不辣',
+      checked: false,
+      hot: false,
+    }, {
+      value: 1,
+      name: '微辣',
+      checked: false,
+      hot: false,
+    }]
+    this.setData({
+      dataSwitch:true,
+      checkbox: checkbox,
+       myId: e.currentTarget.dataset.id,
+       myProperty: "myProperty",
+    })
   }
-
 })

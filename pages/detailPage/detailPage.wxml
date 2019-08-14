@@ -12,7 +12,11 @@
   </view>
   <view class="tl-dishname">
     <text>{{dishName}}</text>
-    <view bindtap="getShare"><button class="tl-button-white" open-type="share"><icon  class="iconfont icon-fenxiang"></icon></button></view>
+    <view bindtap="getShare">
+      <button class="tl-button-white" open-type="share">
+        <icon class="iconfont icon-fenxiang"></icon>
+      </button>
+    </view>
   </view>
   <view class="tl-Price-details">
     <view class="tl-Price-li">
@@ -60,9 +64,9 @@
     <view wx:if="{{0==TabCur}}" class="tl-graphic-introduction">
       <image src="../../static/img/500487848_wx.jpg" mode="widthFix"></image>
       <text>图文介绍</text>
-          <button open-type="contact" bindcontact="handleContact">
-          <icon class="iconfont icon-weixin-copy"></icon>
-        </button>
+      <button open-type="contact" bindcontact="handleContact">
+        <icon class="iconfont icon-weixin-copy"></icon>
+      </button>
     </view>
     <view wx:if="{{1==TabCur}}">
       <form>
@@ -93,8 +97,8 @@
               <view class="margin-top-sm flex justify-between">
                 <view></view>
                 <view>
-                   <text wx:if='{{item.praise}}' bindtap="tapPraise" data-index="{{index}}"   class="cuIcon-appreciatefill text-red"></text>
-                   <text wx:else bindtap="tapPraise" data-index="{{index}}"  class="cuIcon-appreciate text-gray"></text>
+                  <text wx:if='{{item.praise}}' bindtap="tapPraise" data-index="{{index}}" class="cuIcon-appreciatefill text-red"></text>
+                  <text wx:else bindtap="tapPraise" data-index="{{index}}" class="cuIcon-appreciate text-gray"></text>
                   <!-- <text class="cuIcon-messagefill text-gray margin-left-sm"></text> -->
                 </view>
               </view>
@@ -108,60 +112,60 @@
 
 
   </view>
-<view class="tl-kf">
+  <view class="tl-kf">
     <button open-type="contact" bindcontact="handleContact">
-    <view open-type="contact" bindcontact="handleContact" class="cuIcon-weixin"> </view>
-     找店主
-     </button>
-</view>
-
-<view class="tl-cu-bar">
-<view class="cu-bar bg-white tabbar border shop">
-    <button class="action" open-type="contact">
-      <view class="cuIcon-service text-green">
-        <view class="cu-tag badge"></view>
-      </view>
-      客服
+      <view open-type="contact" bindcontact="handleContact" class="cuIcon-weixin"> </view>
+      找店主
     </button>
-        <view bindtap="switchHome" class="action">
-      <view  class="cuIcon-home">  </view>
-    首页
-    </view>
-    <view bindtap="linkShoppingTrolley" class="action">
-      <view class="cuIcon-cart">
-        <view wx:if="{{Amount!=null&&Amount!='0'}}" class="cu-tag badge">{{Amount}}</view>
-      </view>
-      购物车
-    </view>
-    <view  bindtap="showModal" data-target="chooseModal" data-tayp="addCar" data-text="加入购物车" class="bg-orange submit">加入购物车</view>
-    <view bindtap="showModal" data-target="chooseModal" data-tayp="purchase" data-text="立即购买" class="bg-red submit">立即购买</view>
   </view>
+
+  <view class="tl-cu-bar">
+    <view class="cu-bar bg-white tabbar border shop">
+      <button class="action" open-type="contact">
+        <view class="cuIcon-service text-green">
+          <view class="cu-tag badge"></view>
+        </view>
+        客服
+      </button>
+      <view bindtap="switchHome" class="action">
+        <view class="cuIcon-home"> </view>
+        首页
+      </view>
+      <view bindtap="linkShoppingTrolley" class="action">
+        <view class="cuIcon-cart">
+          <view wx:if="{{Amount!=null&&Amount!='0'}}" class="cu-tag badge">{{Amount}}</view>
+        </view>
+        购物车
+      </view>
+      <view bindtap="showModal" data-target="chooseModal" data-tayp="addCar" data-text="加入购物车" class="bg-orange submit">加入购物车</view>
+      <view bindtap="showModal" data-target="chooseModal" data-tayp="purchase" data-text="立即购买" class="bg-red submit">立即购买</view>
+    </view>
   </view>
 </view>
 <view>
-<view class="cu-modal bottom-modal {{modalName=='chooseModal'?'show':''}}" bindtap="hideModal">
-  <view class="cu-dialog" catchtap>
-    <view class="cu-bar bg-white">
-      <view class="action text-blue" >口味</view>
-      <view class="action text-green"> </view>
-    </view>
-    <view class="grid col-3 padding-sm">
-      <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
-        <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="chooseCheckbox" data-value="{{item.value}}"> {{item.name}}
-         
-        </button>
-         <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">Hot</view>
+  <view class="cu-modal bottom-modal {{modalName=='chooseModal'?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog" catchtap>
+      <view class="cu-bar bg-white">
+        <view class="action text-blue">口味</view>
+        <view class="action text-green"> </view>
       </view>
-    </view>
-          <view class="tl-xzsl">
-          <label>购买数量</label>
-          <view class="tl-addmove">
-          <view bindtap="ofNumberRed"  class="cuIcon-move" ></view> 
+      <view class="grid col-3 padding-sm">
+        <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+          <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="chooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+
+          </button>
+          <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">Hot</view>
+        </view>
+      </view>
+      <view class="tl-xzsl">
+        <label>购买数量</label>
+        <view class="tl-addmove">
+          <view bindtap="ofNumberRed" class="cuIcon-move"></view>
           <input type="number" value="{{count}}"></input>
-          <view bindtap="ofNumberAdd" class="cuIcon-add" ></view>
-          </view>
+          <view bindtap="ofNumberAdd" class="cuIcon-add"></view>
+        </view>
+      </view>
+      <view bindtap="getPurchased" class="tl-gpimai {{bgorange?'bg-orange':'bg-gray'}}">{{gtext}}</view>
     </view>
-    <view bindtap="getPurchased" class="tl-gpimai {{bgorange?'bg-orange':'bg-gray'}}">{{gtext}}</view>
   </view>
-</view>
 </view>

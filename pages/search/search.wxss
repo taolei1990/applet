@@ -1,1 +1,79 @@
 /* pages/search/search.wxss */
+
+.tl-search-history {
+  padding: 10rpx 30rpx 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.tl-search-ls {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10rpx;
+}
+
+.tl-search-ls>text {
+  padding: 8rpx 20rpx;
+  font-size: 28rpx;
+  background-color: rgb(240, 240, 240);
+  border-radius: 8rpx;
+  margin-top: 10rpx;
+  margin-right: 10rpx;
+}
+
+.tl-qingchu {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tl-textqc {
+  color: #999;
+}
+
+.tl-recommend {
+  margin-top: 20rpx;
+  padding: 20rpx 30rpx;
+  background-color: #fff;
+}
+
+.tl-mycp {
+}
+
+.tl-cpbox {
+  padding: 30rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tl-cplist {
+  width: 50%;
+}
+
+.tl-cplist .tl-details {
+  padding-right: 15rpx;
+}
+
+.tl-cplist:nth-of-type(2n) .tl-details {
+  padding-right: 0;
+  padding-left: 15rpx;
+}
+
+.tl-details>image {
+  width: 100%;
+  border-radius: 8rpx;
+}
+
+.tl-dishname {
+  display: block;
+  font-size: 32rpx;
+  overflow: hidden; /*超出部分隐藏*/
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  white-space: nowrap;
+  margin: 10rpx 0;
+}
+.tl-pricegm {
+  display: flex;
+  justify-content: space-between;
+}
+.tl-sellingprice{
+  color: rgb(233, 57, 57)
+}

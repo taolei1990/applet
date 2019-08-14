@@ -1,0 +1,28 @@
+<!--components/popup/popup.wxml-->
+<view data-d="{{dataSwitch}}">
+  <view class="cu-modal bottom-modal {{dataSwitch?'show':''}}" bindtap="hideModal">
+    <view class="cu-dialog" catchtap>
+      <view class="cu-bar bg-white">
+        <view class="action text-blue">口味</view>
+        <view class="action text-green"> </view>
+      </view>
+      <view class="grid col-3 padding-sm">
+        <view wx:for="{{checkbox}}" class="padding-xs" wx:key="{{index}}">
+          <button class="cu-btn orange lg block {{item.checked?'bg-orange':'line-orange'}}" bindtap="chooseCheckbox" data-value="{{item.value}}"> {{item.name}}
+
+          </button>
+          <view class="cu-tag sm round {{item.checked?'bg-white text-orange':'bg-orange'}}" wx:if="{{item.hot}}">Hot</view>
+        </view>
+      </view>
+      <view class="tl-xzsl">
+        <label>购买数量</label>
+        <view class="tl-addmove">
+          <view bindtap="ofNumberRed" class="cuIcon-move"></view>
+          <input type="number" value="{{count}}"></input>
+          <view bindtap="ofNumberAdd" class="cuIcon-add"></view>
+        </view>
+      </view>
+      <view bindtap="onPurchased" data-id="{{myId}}" class="tl-gpimai {{bgorange?'bg-orange':'bg-gray'}}">{{gtext}}</view>
+    </view>
+  </view>
+</view>

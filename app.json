@@ -17,7 +17,9 @@
     "pages/logs/logs",
     "pages/e-signature/e-signature",
     "pages/allorders/allorders",
-    "pages/search/search"
+    "pages/search/search",
+    "components/tipLists/tipLists",
+    "components/popup/popup"
   ],
   "window": {
     "navigationBarBackgroundColor": "#f37b1d",

@@ -1,15 +1,44 @@
 <!--pages/search/search.wxml-->
-  <view class="cu-bar search bg-white">
-    <view class="search-form round">
-      <text class="cuIcon-search"></text>
-      <input type="text" placeholder="搜索所有商品" bindinput='bindInput' bindblur='bindBlur' bindconfirm='bindConfirm' confirm-type="search"></input>
+<view class="cu-bar search bg-white">
+  <view class="search-form round">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索所有商品" bindinput='bindInput' bindblur='bindBlur' bindconfirm='bindConfirm' confirm-type="search"></input>
+  </view>
+  <view class="action">
+    <button class="cu-btn bg-{{exist}} shadow-blur round">取消</button>
+  </view>
+</view>
+<view>
+  <view class="tl-search-history" wx:if='{{searchList.length>0}}'>
+    <view class="tl-qingchu">
+      <text>历史搜索</text>
+      <text bindtap="tlEliminate" class="tl-textqc cuIcon-delete"></text>
     </view>
-    <view class="action">
-      <button class="cu-btn bg-{{exist}} shadow-blur round">取消</button>
+    <view class="tl-search-ls">
+      <text wx:for='{{searchList}}' wx:key>{{item}}</text>
     </view>
   </view>
-<view>
-<view>
-搜索记录
+  <view class="tl-recommend">
+    <view class="tl-titlebar-title">
+      <icon class="iconfont icon-youshang"></icon>
+      <text>店长推荐</text>
+      <icon class="iconfont icon-youshang"></icon>
+    </view>
+    <view class="tl-cpbox">
+      <view wx:for="{{cplist}}" wx:key class="tl-cplist">
+        <view class="tl-details">
+          <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+          <text class="tl-dishname">{{item.name}}</text>
+          <view class="tl-pricegm">
+            <text class="tl-sellingprice">￥{{item.price}}</text>
+            <text bindtap="myCart" data-id="{{item.id}}" class="cuIcon-cart"></text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
+<view class="tl-mycp">
+  提示没搜索到
 </view>
+<my-popup bindmyevent="myEventListener" myId="{{myId}}" myProperty="{{myProperty}}" checkbox="{{checkbox}}" dataSwitch="{{dataSwitch}}"></my-popup>

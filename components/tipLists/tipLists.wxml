@@ -1,0 +1,13 @@
+<!--components/tipLists/tipLists.wxml-->
+<view class="tl-cpbox">
+  <view class="tl-cplist">
+    <view class="tl-details">
+      <image src="/static/img/500616301_wx.jpg" mode="widthFix"></image>
+      <text class="tl-dishname">菜名</text>
+      <view class="tl-pricegm">
+        <text>￥15</text>
+        <text>购买</text>
+      </view>
+    </view>
+  </view>
+</view>

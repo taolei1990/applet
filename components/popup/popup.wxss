@@ -1,0 +1,32 @@
+/* components/popup/popup.wxss */
+.tl-xzsl{
+  padding: 40rpx;
+  display: flex;
+  justify-content:  space-between;
+  align-items: center
+}
+.tl-addmove{
+  display: flex;
+ align-items: center;
+}
+.tl-gpimai{
+  font-size: 40rpx;
+  padding: 30rpx 0;
+}
+.padding-xs {
+position: relative;
+
+}
+
+.cu-tag.sm{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.tl-xzsl>input{
+  width: 100rpx;
+}
+.tl-addmove>view{
+  font-size: 44rpx;
+  padding: 10rpx;
+}

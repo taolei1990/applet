@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+      "my-popup": "../../../components/popup/popup"
+  },
   "navigationBarTitleText": "搜索"
 }
